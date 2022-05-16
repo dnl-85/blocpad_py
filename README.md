@@ -14,7 +14,7 @@ pour le reste, vous pouvez vous éclater à le mettre à votre sauce ;)
 
 -----
 
-le script shell 'blocpad.sh' est un script taillé pour bash / Linux. ce dernier permet de s'économiser l'écriture en entier des 2 commandes ci-dessus... la syntaxe devient alors très simple pour utiliser le programme :  
+le script shell 'blocpad' est un script taillé pour bash / Linux. ce dernier permet de s'économiser l'écriture en entier des 2 commandes ci-dessus... il prend en paramètre qu'un seul argument, de ce fait, la syntaxe devient alors très simple pour utiliser le programme :  
 pour écrire dans un fichier texte, il suffit de taper la commande suivante :
 
     ./blocpad -w
