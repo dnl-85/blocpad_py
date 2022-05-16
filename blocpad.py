@@ -1,6 +1,5 @@
 #!/usr/bin/python3
 #-*- coding: utf-8 -*-
-import cython
 import os, sys, getpass
 from datetime import date, datetime
 
