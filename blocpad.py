@@ -27,10 +27,13 @@ def main(option):
 # par exemple : python3 blocpad.py -r note.txt
 # va lancer le script en mode lecture et lire le fichier note.txt
 def lire(datas):
-    with open(datas, "r") as fichier:
-        contenu = fichier.read()
-    print (f"\n{contenu}\n")
-    exit()
+    try:
+        with open(datas, "r") as fichier:
+            contenu = fichier.read()
+        print (f"\n{contenu}\n")
+        exit()
+    except:
+        print("le fichier spécifié n'existe pas !")
 
 # fonction permettant l'écriture d'une note dans le fichier spécifié en option
 # par exemple : python3 blocpad.py -w note.txt
@@ -53,18 +56,23 @@ def surveille(datas):
     while True:
         try:
             os.system("clear")
-            with open(datas, "r") as fichier:
-                try:
-                    contenu = fichier.readlines()[-10:]
-                    for x in contenu:
-                        print(x.replace("\n", ""))
-                except:
-                    contenu = fichier.read()
-                    print(f"\n{contenu}")
-                finally:
-                    print(f"\n... EN ATTENTE ... dernier accès : {horodatage()}")
-                    print(f"... Ctrl-Z pour terminer et revenir au Terminal ...")
-            os.system("sleep 20")
+            try:
+                with open(datas, "r") as fichier:
+                    try:
+                        contenu = fichier.readlines()[-10:]
+                        for x in contenu:
+                            print(x.replace("\n", ""))
+                    except:
+                        contenu = fichier.read()
+                        print(f"\n{contenu}")
+                    finally:
+                        print(f"\n... EN ATTENTE ... dernier accès : {horodatage()}")
+                        print(f"... Ctrl-Z pour terminer et revenir au Terminal ...")
+                os.system("sleep 20")
+                surveille(datas)
+            except:
+                print("le fichier spécifié n'existe pas !")
+                break
         except KeyboardInterrupt:
             print("... FIN DE L'ECHANGE ...")
 
